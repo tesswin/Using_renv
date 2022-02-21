@@ -1,0 +1,43 @@
+---
+title: "Using_renv"
+author: "Tesswin Thomas"
+date: "2/21/2022"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Using renv - version control 
+
+Once the packages are installed, the following are the steps for using version control
+1. intiliaze renv package using renv::init() 
+2. take a snapshot 
+
+```{r sample_packages}
+
+library(tidyverse)
+
+view(mtcars)
+ggplot(data = mtcars, 
+       mapping = aes(x = mpg, y = cyl)) + 
+  geom_point()
+
+```
+
+Activation version control
+
+```{r renv}
+
+# initializing renv 
+renv::init()
+# the renv.lock file doesn't contain the tidyverse package. Now, will try the snapshot function. 
+
+renv::snapshot()
+
+
+
+```
